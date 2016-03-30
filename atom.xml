@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-03-30T19:49:50.000Z</updated>
+  <updated>2016-03-30T19:59:03.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,34 +20,31 @@
     <link href="http://yoursite.com/2016/03/28/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/"/>
     <id>http://yoursite.com/2016/03/28/响应式布局/</id>
     <published>2016-03-28T04:48:40.000Z</published>
-    <updated>2016-03-30T19:49:50.000Z</updated>
+    <updated>2016-03-30T19:59:03.000Z</updated>
     
-    <content type="html">&lt;p&gt;#响应式布局&lt;br&gt;（写栅格式布局时接触到的一些关于响应式布局的知识，以及运用SCSS对代码进行优化。）&lt;/p&gt;
+    <content type="html">&lt;h1 id=&quot;响应式布局&quot;&gt;&lt;a href=&quot;#响应式布局&quot; class=&quot;headerlink&quot; title=&quot;响应式布局&quot;&gt;&lt;/a&gt;响应式布局&lt;/h1&gt;&lt;p&gt;（写栅格式布局时接触到的一些关于响应式布局的知识，以及运用SCSS对代码进行优化。）&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;&amp;nbsp;响应式布局可以根据视口大小改变网页布局。三要素：媒体查询、流式设计，弹性图片。&lt;/p&gt;
-&lt;p&gt;##媒体查询&lt;/p&gt;
-&lt;p&gt;使用&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Media_queries&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;媒体查询&lt;/a&gt;可以在不改变页面内容的情况下，为一些特定的输出设备定制显示效果。使用格式：由媒体类型和n个检测媒体特性的表达式组成（n&amp;gt;=0），各检测属性之间由 and/or/not 连接，并用括号括起来。可以用媒体查询的媒体特性有 width，device-width，height，color，color-index，aspect-ratio，grid，orientation，resolution，scan 等。&lt;/p&gt;
+&lt;h2 id=&quot;媒体查询&quot;&gt;&lt;a href=&quot;#媒体查询&quot; class=&quot;headerlink&quot; title=&quot;媒体查询&quot;&gt;&lt;/a&gt;媒体查询&lt;/h2&gt;&lt;p&gt;使用&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Media_queries&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;媒体查询&lt;/a&gt;可以在不改变页面内容的情况下，为一些特定的输出设备定制显示效果。使用格式：由媒体类型和n个检测媒体特性的表达式组成（n&amp;gt;=0），各检测属性之间由 and/or/not 连接，并用括号括起来。可以用媒体查询的媒体特性有 width，device-width，height，color，color-index，aspect-ratio，grid，orientation，resolution，scan 等。&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;@media screen and (min-width: 768px){width: 60%;}
 @media screen and (max-width: 768px){width: 80%;}
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这是一个简单的示范，事实上我们可以用 @media 实现更复杂的变化，使我们的页面能在不同大小的视口中能按我们设想的效果一样显示出来。&lt;/p&gt;
 &lt;p&gt;当然这也意味着我们需要考虑很多很多种情况。而且就算这样，我们也不能认为响应式布局能能完全解决不同设备或不同视窗下网页显示不同的问题。如果只是展示用的页面，响应式网页设计能考虑不同的用户的视觉体验，使我们的页面不管在什么情况下都很美观，但对于功能复杂的有众多数据流动的页面，我们不能简单认为用 &lt;code&gt;@media (max-width: 400px;){width: 30%;}&lt;/code&gt; 能解决客户端显示的所有问题，这里不仅仅是样式问题，更有逻辑结构等不兼容。所以在必要的时候，工程师们还是会选择为不同的设备写不同版本的代码。&lt;/p&gt;
-&lt;p&gt;##流式设计&lt;br&gt;我们用 float 实现块级元素的流动式设计，让我们的布局中的块级元素在不同大小的视口中视具体空间按不同位置排列，而不是简单地缩小或放大 block 的宽高。&lt;/p&gt;
+&lt;h2 id=&quot;流式设计&quot;&gt;&lt;a href=&quot;#流式设计&quot; class=&quot;headerlink&quot; title=&quot;流式设计&quot;&gt;&lt;/a&gt;流式设计&lt;/h2&gt;&lt;p&gt;我们用 float 实现块级元素的流动式设计，让我们的布局中的块级元素在不同大小的视口中视具体空间按不同位置排列，而不是简单地缩小或放大 block 的宽高。&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;@media screen and (min-width: 768px){
 [class*=&amp;quot;col-&amp;quot;]{float: left;}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;##弹性图片&lt;br&gt;这里也不仅仅是指弹性图片，其他的填充元素也可以。弹性表明内部的元素能够根据外部空间大小实现自适应，即动态调整自己的宽和高的大小以被包容。我们可以通过 &lt;code&gt;img{width: 100%; height: 100%;}&lt;/code&gt; 来实现。&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;弹性图片&quot;&gt;&lt;a href=&quot;#弹性图片&quot; class=&quot;headerlink&quot; title=&quot;弹性图片&quot;&gt;&lt;/a&gt;弹性图片&lt;/h2&gt;&lt;p&gt;这里也不仅仅是指弹性图片，其他的填充元素也可以。弹性表明内部的元素能够根据外部空间大小实现自适应，即动态调整自己的宽和高的大小以被包容。我们可以通过 &lt;code&gt;img{width: 100%; height: 100%;}&lt;/code&gt; 来实现。&lt;/p&gt;
 &lt;h2 id=&quot;lt-meta-name-”viewport”-gt&quot;&gt;&lt;a href=&quot;#lt-meta-name-”viewport”-gt&quot; class=&quot;headerlink&quot; title=&quot;&amp;lt;meta name=”viewport”&amp;gt;&quot;&gt;&lt;/a&gt;&amp;lt;meta name=”viewport”&amp;gt;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width = device-width, initial-scale = 1&amp;quot;&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;###三种viewport&lt;/p&gt;
-&lt;p&gt;在苹果的规范中，meta viewport 有6个属性：width，initial-scale，minimum-scale，maximum-scale，height，user-scalable（no表示不允许用户进行缩放）。viewport 指浏览器中能用来显示网页的那部分，它的大小并不局限于浏览器可视区域。更多关于viewport的探讨可以参考&lt;a href=&quot;http://www.quirksmode.org/mobile/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.quirksmode.org/mobile/&lt;/a&gt;中提到的三个viewport(layout viewport、visual viewport，ideal viewport)。其中 layout viewport 指浏览器中能够用来显示网页的部分（使用 document.documentElement.clientWidth 获得），visual viewport （使用 window.innerWidth 获得）指能够被用户看到的区域，ideal viewport 是用户无需放大、滚动条就能看到完整的网页的取值（不同的设备对这个值的规定不同）。&lt;/p&gt;
-&lt;p&gt;###实现ideal viewport&lt;/p&gt;
-&lt;p&gt;我们有两种方法使 viewport 的取值达到理想状态。第一种就是 &lt;code&gt;width=device-width&lt;/code&gt;（这里的 width指的是 layout width ），让 viewport 的宽度等于设备的宽度，这就是我们想要的 ideal viewport。不过在 ipad 和 iphone 上使用这种方法时，无论横屏、竖屏，都只能得到竖屏时的ideal viewport。&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;三种viewport&quot;&gt;&lt;a href=&quot;#三种viewport&quot; class=&quot;headerlink&quot; title=&quot;三种viewport&quot;&gt;&lt;/a&gt;三种viewport&lt;/h3&gt;&lt;p&gt;在苹果的规范中，meta viewport 有6个属性：width，initial-scale，minimum-scale，maximum-scale，height，user-scalable（no表示不允许用户进行缩放）。viewport 指浏览器中能用来显示网页的那部分，它的大小并不局限于浏览器可视区域。更多关于viewport的探讨可以参考&lt;a href=&quot;http://www.quirksmode.org/mobile/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.quirksmode.org/mobile/&lt;/a&gt;中提到的三个viewport(layout viewport、visual viewport，ideal viewport)。其中 layout viewport 指浏览器中能够用来显示网页的部分（使用 document.documentElement.clientWidth 获得），visual viewport （使用 window.innerWidth 获得）指能够被用户看到的区域，ideal viewport 是用户无需放大、滚动条就能看到完整的网页的取值（不同的设备对这个值的规定不同）。&lt;/p&gt;
+&lt;h3 id=&quot;实现ideal-viewport&quot;&gt;&lt;a href=&quot;#实现ideal-viewport&quot; class=&quot;headerlink&quot; title=&quot;实现ideal viewport&quot;&gt;&lt;/a&gt;实现ideal viewport&lt;/h3&gt;&lt;p&gt;我们有两种方法使 viewport 的取值达到理想状态。第一种就是 &lt;code&gt;width=device-width&lt;/code&gt;（这里的 width指的是 layout width ），让 viewport 的宽度等于设备的宽度，这就是我们想要的 ideal viewport。不过在 ipad 和 iphone 上使用这种方法时，无论横屏、竖屏，都只能得到竖屏时的ideal viewport。&lt;/p&gt;
 &lt;p&gt;第二种方法是 &lt;code&gt;initial-scale=1&lt;/code&gt; 。这里的缩放值为1，它告诉设备，不要对当前页面进行缩放，页面便获得了 ideal viewport 。 viewport 的缩放是相对于 ideal viewport 来缩放的，缩放值越大，当前viewport的宽度就会越小。&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;当前缩放值 ＝ ideal viewport ／ visual viewport
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;不过在IE中使用这种方法时，无论横屏、竖屏，都只能得到竖屏时的 ideal viewport 。所以通常我们将这两种都写上，就考虑得比较周全。&lt;/p&gt;
 &lt;p&gt;顺带一提，&lt;code&gt;&amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=400, initial-scale=1&amp;quot;&amp;gt;&lt;/code&gt; 这种情况下设备将比较 width 的值和 ideal viewport 的值，浏览器取更大的那个宽度。&lt;/p&gt;
-&lt;p&gt;##1px(CSS) &amp;amp; 1px(设备)&lt;br&gt;在桌面浏览器中的 CSS 的 1px 往往对应对应着设备屏幕的1个物理像素，但这两个像素并不是同一种含义。 CSS 中的 px 只是一抽象单位，这里设置的 1px 在不同的设备中所代表的物理像素都不同。对于桌面浏览器的网页，我们可以不用过多考虑这个，但在移动设备中，CSS 中的 1px 对应的设备像素大小就各不相同了。&lt;/p&gt;
+&lt;h2 id=&quot;1px-CSS-amp-1px-设备&quot;&gt;&lt;a href=&quot;#1px-CSS-amp-1px-设备&quot; class=&quot;headerlink&quot; title=&quot;1px(CSS) &amp;amp; 1px(设备)&quot;&gt;&lt;/a&gt;1px(CSS) &amp;amp; 1px(设备)&lt;/h2&gt;&lt;p&gt;在桌面浏览器中的 CSS 的 1px 往往对应对应着设备屏幕的1个物理像素，但这两个像素并不是同一种含义。 CSS 中的 px 只是一抽象单位，这里设置的 1px 在不同的设备中所代表的物理像素都不同。对于桌面浏览器的网页，我们可以不用过多考虑这个，但在移动设备中，CSS 中的 1px 对应的设备像素大小就各不相同了。&lt;/p&gt;
 &lt;p&gt;用户缩放也将改变 CSS 中像素与设备像素的对应。当用户把界面放大一倍， CSS 中的 1px 对应的物理像素也增加一倍。&lt;/p&gt;
-&lt;p&gt;##响应式布局代码示范&lt;br&gt;这里可以看看IFE任务中关于&lt;a href=&quot;http://7xrp04.com1.z0.glb.clouddn.com/task_1_8_1.png&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;栅格结构的实现效果图&lt;/a&gt;。这里可以使用响应式网页设计来实现。&lt;a href=&quot;http://stacyyy.github.io/IFE/task1_8/index.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;代码看这里&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;###实现自适应&lt;br&gt;看到设计要求的时候，可能会想到下面这种这种方法实现元素之间的间隔和宽度适应：&lt;/p&gt;
+&lt;h2 id=&quot;响应式布局代码示范&quot;&gt;&lt;a href=&quot;#响应式布局代码示范&quot; class=&quot;headerlink&quot; title=&quot;响应式布局代码示范&quot;&gt;&lt;/a&gt;响应式布局代码示范&lt;/h2&gt;&lt;p&gt;这里可以看看IFE任务中关于&lt;a href=&quot;http://7xrp04.com1.z0.glb.clouddn.com/task_1_8_1.png&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;栅格结构的实现效果图&lt;/a&gt;。这里可以使用响应式网页设计来实现。&lt;a href=&quot;http://stacyyy.github.io/IFE/task1_8/index.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;代码看这里&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;实现自适应&quot;&gt;&lt;a href=&quot;#实现自适应&quot; class=&quot;headerlink&quot; title=&quot;实现自适应&quot;&gt;&lt;/a&gt;实现自适应&lt;/h3&gt;&lt;p&gt;看到设计要求的时候，可能会想到下面这种这种方法实现元素之间的间隔和宽度适应：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;
 &amp;lt;html&amp;gt;
 &amp;lt;head&amp;gt;
@@ -103,10 +100,8 @@
  }
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这里用了两层块级元素嵌套，inner 框的宽度就实现了自适应。不用担心 border 的取值影响元素宽度占比，用 padding 代替使用 margin，不担心各栅格之间的空格实现。&lt;/p&gt;
-&lt;hr&gt;
 &lt;p&gt;上文中的 &lt;code&gt;box-sizing: border-box;&lt;/code&gt; 保证了 padding 值不回被加入宽度导致容器被撑破。我们也可以用 calc( ) 来实现同样的效果。总宽度100%减去 border &lt;em&gt; 2,减去 padding ＊ 2，得到的就是盒子里元素所能使用的宽度。在这里：```width: calc(100% - (10px + 1px) &lt;/em&gt; 2);&lt;code&gt;。一般我们还会加上&lt;/code&gt;width: 90%;``` 提供给不支持 calc 的浏览器。&lt;/p&gt;
-&lt;p&gt;###用SCSS进行代码优化&lt;br&gt;示例中的代码里只有一组 class 值相同的元素，但如果有很多的框各有不同的宽度占比，我们通过计算直接写出宽度百分比显然不是个好方法。事实上我们可以通过SCSS写出根据属性值计算宽度占比的复用表达式（这里按分栏命名属性值标准化就显得很有好处了：col-md-*）。&lt;/p&gt;
-&lt;hr&gt;
+&lt;h3 id=&quot;用SCSS进行代码优化&quot;&gt;&lt;a href=&quot;#用SCSS进行代码优化&quot; class=&quot;headerlink&quot; title=&quot;用SCSS进行代码优化&quot;&gt;&lt;/a&gt;用SCSS进行代码优化&lt;/h3&gt;&lt;p&gt;示例中的代码里只有一组 class 值相同的元素，但如果有很多的框各有不同的宽度占比，我们通过计算直接写出宽度百分比显然不是个好方法。事实上我们可以通过SCSS写出根据属性值计算宽度占比的复用表达式（这里按分栏命名属性值标准化就显得很有好处了：col-md-*）。&lt;/p&gt;
 &lt;p&gt;HTML 中的代码不变，我们使用 SCSS 可以更简洁地实现我们的目的。顺带一提，SCSS 中不直接使用属性具体值，而是声明变量后引用，这样在我们需要修改参数时很方便。&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;//caculate the width
 
@@ -125,15 +120,15 @@
 @media (min-width:769px){
 @include generateGrid(true);
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;其他样式声明这里就不加了。在更多的时候我们还会发现 @media 和 @include 方便对代码复用提供的便捷。&lt;/p&gt;
-&lt;p&gt;##参考资料：&lt;/p&gt;
-&lt;p&gt;1、&lt;a href=&quot;http://www.cnblogs.com/2050/p/3877280.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/2050/p/3877280.html&lt;/a&gt;    &lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;参考资料：&quot;&gt;&lt;a href=&quot;#参考资料：&quot; class=&quot;headerlink&quot; title=&quot;参考资料：&quot;&gt;&lt;/a&gt;参考资料：&lt;/h2&gt;&lt;p&gt;1、&lt;a href=&quot;http://www.cnblogs.com/2050/p/3877280.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/2050/p/3877280.html&lt;/a&gt;    &lt;/p&gt;
 &lt;p&gt;2、&lt;a href=&quot;http://www.quirksmode.org/mobile/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.quirksmode.org/mobile/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;3、&lt;a href=&quot;https://github.com/liujianhuanzz/ife_2016_spring/tree/master/task_1_8&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/liujianhuanzz/ife_2016_spring/tree/master/task_1_8&lt;/a&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;#响应式布局&lt;br&gt;（写栅格式布局时接触到的一些关于响应式布局的知识，以及运用SCSS对代码进行优化。）&lt;/p&gt;
+      &lt;h1 id=&quot;响应式布局&quot;&gt;&lt;a href=&quot;#响应式布局&quot; class=&quot;headerlink&quot; title=&quot;响应式布局&quot;&gt;&lt;/a&gt;响应式布局&lt;/h1&gt;&lt;p&gt;（写栅格式布局时接触到的一些关于响应式布局的知识，以及运用SCSS对代码进行优化。）&lt;/p&gt;
     
     </summary>
     
