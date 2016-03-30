@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-03-30T20:04:41.000Z</updated>
+  <updated>2016-03-30T20:09:10.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://yoursite.com/2016/03/28/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/"/>
     <id>http://yoursite.com/2016/03/28/响应式布局/</id>
     <published>2016-03-28T04:48:40.000Z</published>
-    <updated>2016-03-30T20:04:41.000Z</updated>
+    <updated>2016-03-30T20:09:10.000Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;响应式布局&quot;&gt;&lt;a href=&quot;#响应式布局&quot; class=&quot;headerlink&quot; title=&quot;响应式布局&quot;&gt;&lt;/a&gt;响应式布局&lt;/h1&gt;&lt;p&gt;（写栅格式布局时接触到的一些关于响应式布局的知识，以及运用SCSS对代码进行优化。）&lt;/p&gt;
+    <content type="html">&lt;h2 id=&quot;响应式布局&quot;&gt;&lt;a href=&quot;#响应式布局&quot; class=&quot;headerlink&quot; title=&quot;响应式布局&quot;&gt;&lt;/a&gt;响应式布局&lt;/h2&gt;&lt;p&gt;（写栅格式布局时接触到的一些关于响应式布局的知识，以及运用SCSS对代码进行优化。）&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;&amp;nbsp;响应式布局可以根据视口大小改变网页布局。三要素：媒体查询、流式设计，弹性图片。&lt;/p&gt;
 &lt;h2 id=&quot;媒体查询&quot;&gt;&lt;a href=&quot;#媒体查询&quot; class=&quot;headerlink&quot; title=&quot;媒体查询&quot;&gt;&lt;/a&gt;媒体查询&lt;/h2&gt;&lt;p&gt;使用&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Media_queries&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;媒体查询&lt;/a&gt;可以在不改变页面内容的情况下，为一些特定的输出设备定制显示效果。使用格式：由媒体类型和n个检测媒体特性的表达式组成（n&amp;gt;=0），各检测属性之间由 and/or/not 连接，并用括号括起来。可以用媒体查询的媒体特性有 width，device-width，height，color，color-index，aspect-ratio，grid，orientation，resolution，scan 等。&lt;/p&gt;
@@ -34,7 +34,7 @@
 &lt;pre&gt;&lt;code&gt;@media screen and (min-width: 768px){
 [class*=&amp;quot;col-&amp;quot;]{float: left;}
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;弹性图片&quot;&gt;&lt;a href=&quot;#弹性图片&quot; class=&quot;headerlink&quot; title=&quot;弹性图片&quot;&gt;&lt;/a&gt;弹性图片&lt;/h2&gt;&lt;p&gt;这里也不仅仅是指弹性图片，其他的填充元素也可以。弹性表明内部的元素能够根据外部空间大小实现自适应，即动态调整自己的宽和高的大小以被包容。我们可以通过 &lt;code&gt;img{width: 100%; height: 100%;}&lt;/code&gt; 来实现。&lt;/p&gt;
-&lt;h2 id=&quot;meta-viewport&quot;&gt;&lt;a href=&quot;#meta-viewport&quot; class=&quot;headerlink&quot; title=&quot;meta viewport&quot;&gt;&lt;/a&gt;meta viewport&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width = device-width, initial-scale = 1&amp;quot;&amp;gt;
+&lt;h2 id=&quot;meta-viewport-的用处&quot;&gt;&lt;a href=&quot;#meta-viewport-的用处&quot; class=&quot;headerlink&quot; title=&quot;meta viewport 的用处&quot;&gt;&lt;/a&gt;meta viewport 的用处&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width = device-width, initial-scale = 1&amp;quot;&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;三种viewport&quot;&gt;&lt;a href=&quot;#三种viewport&quot; class=&quot;headerlink&quot; title=&quot;三种viewport&quot;&gt;&lt;/a&gt;三种viewport&lt;/h3&gt;&lt;p&gt;在苹果的规范中，meta viewport 有6个属性：width，initial-scale，minimum-scale，maximum-scale，height，user-scalable（no表示不允许用户进行缩放）。viewport 指浏览器中能用来显示网页的那部分，它的大小并不局限于浏览器可视区域。更多关于viewport的探讨可以参考&lt;a href=&quot;http://www.quirksmode.org/mobile/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.quirksmode.org/mobile/&lt;/a&gt;中提到的三个viewport(layout viewport、visual viewport，ideal viewport)。其中 layout viewport 指浏览器中能够用来显示网页的部分（使用 document.documentElement.clientWidth 获得），visual viewport （使用 window.innerWidth 获得）指能够被用户看到的区域，ideal viewport 是用户无需放大、滚动条就能看到完整的网页的取值（不同的设备对这个值的规定不同）。&lt;/p&gt;
 &lt;h3 id=&quot;实现ideal-viewport&quot;&gt;&lt;a href=&quot;#实现ideal-viewport&quot; class=&quot;headerlink&quot; title=&quot;实现ideal viewport&quot;&gt;&lt;/a&gt;实现ideal viewport&lt;/h3&gt;&lt;p&gt;我们有两种方法使 viewport 的取值达到理想状态。第一种就是 &lt;code&gt;width=device-width&lt;/code&gt;（这里的 width指的是 layout width ），让 viewport 的宽度等于设备的宽度，这就是我们想要的 ideal viewport。不过在 ipad 和 iphone 上使用这种方法时，无论横屏、竖屏，都只能得到竖屏时的ideal viewport。&lt;/p&gt;
 &lt;p&gt;第二种方法是 &lt;code&gt;initial-scale=1&lt;/code&gt; 。这里的缩放值为1，它告诉设备，不要对当前页面进行缩放，页面便获得了 ideal viewport 。 viewport 的缩放是相对于 ideal viewport 来缩放的，缩放值越大，当前viewport的宽度就会越小。&lt;/p&gt;
@@ -128,7 +128,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;响应式布局&quot;&gt;&lt;a href=&quot;#响应式布局&quot; class=&quot;headerlink&quot; title=&quot;响应式布局&quot;&gt;&lt;/a&gt;响应式布局&lt;/h1&gt;&lt;p&gt;（写栅格式布局时接触到的一些关于响应式布局的知识，以及运用SCSS对代码进行优化。）&lt;/p&gt;
+      &lt;h2 id=&quot;响应式布局&quot;&gt;&lt;a href=&quot;#响应式布局&quot; class=&quot;headerlink&quot; title=&quot;响应式布局&quot;&gt;&lt;/a&gt;响应式布局&lt;/h2&gt;&lt;p&gt;（写栅格式布局时接触到的一些关于响应式布局的知识，以及运用SCSS对代码进行优化。）&lt;/p&gt;
     
     </summary>
     
