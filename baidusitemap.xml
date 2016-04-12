@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://yoursite.com/2016/04/08/BFC/</loc>
-    <lastmod>2016-04-12T12:09:49.000Z</lastmod>
+    <lastmod>2016-04-12T12:16:17.000Z</lastmod>
     <data>
         <display>
         <title>BFC</title>
@@ -15,6 +15,9 @@
          
          
            
+             
+              <breadCrumb title="CSS" url="http://yoursite.com/categories/CSS/"/>
+          
         </display>
     </data>
     </url>
