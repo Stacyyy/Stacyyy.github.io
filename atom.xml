@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-12T13:21:35.000Z</updated>
+  <updated>2016-04-12T13:45:29.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016/04/08/BFC/"/>
     <id>http://yoursite.com/2016/04/08/BFC/</id>
     <published>2016-04-08T06:07:01.000Z</published>
-    <updated>2016-04-12T13:21:35.000Z</updated>
+    <updated>2016-04-12T13:45:29.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;什么是-BFC&quot;&gt;&lt;a href=&quot;#什么是-BFC&quot; class=&quot;headerlink&quot; title=&quot;什么是 BFC&quot;&gt;&lt;/a&gt;什么是 BFC&lt;/h2&gt;&lt;p&gt;BFC（block formattting context），块级格式化上下文，我们在 CSS 中的许多行为都会创建新的 BFC ，到底什么是 BFC 呢？它提供了一个独立布局的环境，理解为一个盒子（块级元素），这个盒子里的一切布局不受外界影响(我们可以利用这个特性来消除浮动元素或者对其非浮动的兄弟元素和其子元素带来的影响)，但盒子内部的布局存在相互影响。本文将从“何时产生新的 BFC ”以及“如何应用 BFC 实现我们想要的样式效果”两个方面展开。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;什么情况下产生-BFC&quot;&gt;&lt;a href=&quot;#什么情况下产生-BFC&quot; class=&quot;headerlink&quot; title=&quot;什么情况下产生 BFC&quot;&gt;&lt;/a&gt;什么情况下产生 BFC&lt;/h2&gt;&lt;p&gt;当 CSS 中设置里以下属性中的一种或多种时，都会创建新的BFC。&lt;/p&gt;
@@ -31,44 +31,26 @@ overflow: hidden | scroll | auto; //not visible
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在 BFC 中，对于从左到右的格式，每一个盒子的 margin-left 都会碰到容器的 border-left ，除了盒子里创建里一个 BFC 。&lt;/p&gt;
 &lt;h2 id=&quot;应用-BFC&quot;&gt;&lt;a href=&quot;#应用-BFC&quot; class=&quot;headerlink&quot; title=&quot;应用 BFC&quot;&gt;&lt;/a&gt;应用 BFC&lt;/h2&gt;&lt;h3 id=&quot;消除-Collapsing-Margin&quot;&gt;&lt;a href=&quot;#消除-Collapsing-Margin&quot; class=&quot;headerlink&quot; title=&quot;消除 Collapsing Margin&quot;&gt;&lt;/a&gt;消除 Collapsing Margin&lt;/h3&gt;&lt;p&gt;我们知道，在 CSS 中，相邻的两个块级元素的外边距会出现重叠，从而形成一个重叠的外边距。这里的相邻也就时必须满足以下情况：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;处于同一个 BFC 中的正常文档流中的块级元素；&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;元素之间不存在间隙&lt;a href=&quot;https://www.w3.org/TR/CSS2/visuren.html#clearance&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;（clearance）&lt;/a&gt;，并且没有 padding 和 border 将它们分开:&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;处于同一个 BFC 中的正常文档流中的块级元素；&lt;/li&gt;
+&lt;li&gt;元素之间不存在间隙&lt;a href=&quot;https://www.w3.org/TR/CSS2/visuren.html#clearance&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;（clearance）&lt;/a&gt;，并且没有 padding 和 border 将它们分开:&lt;br&gt;根据 W3C 规范，浮动元素之后的元素设置 clear&lt;br&gt; 闭合相关浮动时，闭合浮动的元素会在其 margin-top 上形成一定的空隙，也就是我们这里所说的     clearance （通常情况下我们不需要计算出来，具体计算可以参考上文中 clearance 的定义链接），这个间距会阻止 margin-top 的叠加。&lt;br&gt; &lt;p data-height=&quot;268&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;KzQrYB&quot; data-default-tab=&quot;result&quot; data-user=&quot;Stacyyy&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/Stacyyy/pen/KzQrYB/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;clearance&lt;/a&gt; by stacyyy (&lt;a href=&quot;http://codepen.io/Stacyyy&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;@Stacyyy&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;&lt;br&gt; &lt;script async src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;&lt;br&gt;从上面的例子中，我们可以看到，上下两个块级元素的间距只有上面的块计元素的 margin-bottom 决定，显示为 20px ，而闭和浮动元素的 margin-top 值 100px 并未和 浮动元素的 margin-bottom 进行叠加，而是紧贴着它的 margin-bottom。&lt;br&gt;我们可以看到，第一个盒子和第二个盒子的外边距并未发生重叠，可以得出结论，闭合浮动不能使浮动元素回到原来的 BFC 。            &lt;/li&gt;
+&lt;li&gt;都属于垂直方向上的相邻外边距（父子元素、兄弟元素、元素自身）:&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;#8226;&amp;nbsp;根据 W3C 规范，浮动元素之后的元素设置 clear&lt;br&gt;闭合相关浮动时，闭合浮动的元素会在其 margin-top 上形成一定的空隙，也就是我们这里所说的 clearance （通常情况下我们不需要计算出来，具体计算可以参考上文中 clearance 的定义链接），这个间距会阻止 margin-top 的叠加。&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;&lt;p data-height=&quot;268&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;KzQrYB&quot; data-default-tab=&quot;result&quot; data-user=&quot;Stacyyy&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/Stacyyy/pen/KzQrYB/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;clearance&lt;/a&gt; by stacyyy (&lt;a href=&quot;http://codepen.io/Stacyyy&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;@Stacyyy&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
-&lt;script async src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;从上面的例子中，我们可以看到，上下两个块级元素的间距只有上面的块计元素的 margin-bottom 决定，显示为 20px ，而闭和浮动元素的 margin-top 值 100px 并未和 浮动元素的 margin-bottom 进行叠加，而是紧贴着它的 margin-bottom。&lt;/p&gt;
-&lt;p&gt;我们可以看到，第一个盒子和第二个盒子的外边距并未发生重叠，可以得出结论，闭合浮动不能使浮动元素回到原来的 BFC 。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;都属于垂直方向上的相邻外边距（父子元素、兄弟元素、元素自身）:&lt;br&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&amp;#8226;&amp;nbsp;元素的 margin-top 和第一个常规文档流的子元素的 margin-top；&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;&lt;p data-height=&quot;268&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;dMdKEr&quot; data-default-tab=&quot;result&quot; data-user=&quot;Stacyyy&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/Stacyyy/pen/dMdKEr/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;collasping1&lt;/a&gt; by stacyyy (&lt;a href=&quot;http://codepen.io/Stacyyy&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;@Stacyyy&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
-&lt;script async src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
-&amp;#8226;&amp;nbsp; height 值为 auto 的元素的 margin-bottom 和 最后一个常规文档流的子元素的 margin-bottom；&lt;br&gt;
-&lt;p data-height=&quot;268&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;RaQBoP&quot; data-default-tab=&quot;result&quot; data-user=&quot;Stacyyy&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/Stacyyy/pen/RaQBoP/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;collasping2&lt;/a&gt; by stacyyy (&lt;a href=&quot;http://codepen.io/Stacyyy&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;@Stacyyy&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
-&lt;script async src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
-&amp;#8226;&amp;nbsp;元素的 margin-bottom 和下一个常规文档流的兄弟元素的 margin-top；&lt;br&gt;
-&amp;#8226;&amp;nbsp;height 为0并且 min-height 也为0，不包含常规文档流的子元素并且自身没有建立新的 BFC 的元素的 margin-top 和 margin-bottom；
-
-
----
-
-这里提一下外边距的重叠计算规则：
-
-&amp;#8226;&amp;nbsp;当相邻块级元素的外边距都为正数时，重叠外边距取更大者的值；     
-&amp;#8226;&amp;nbsp;当相邻块级元素的外边距都为负数时，重叠外边距取两者绝对值更大者的值；      
-&amp;#8226;&amp;nbsp;当相邻块级元素的外边距一个为正，一个为负时，重叠外边距取两者相加后的值。
-
-
-### 包含浮动元素
-对于一个没有高度或高度为 auto 的父容器，如果子元素是浮动元素，脱离了文档流，则父容器无法包含子元素，我们可以利用 BFC 来包含浮动元素。
-&lt;p data-height=&quot;268&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;VaQqrW&quot; data-default-tab=&quot;result&quot; data-user=&quot;Stacyyy&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/Stacyyy/pen/VaQqrW/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;show_height&lt;/a&gt; by stacyyy (&lt;a href=&quot;http://codepen.io/Stacyyy&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;@Stacyyy&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
-&lt;script async src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
-
+&lt;pre&gt;&lt;code&gt;- 元素的 margin-top 和第一个常规文档流的子元素的 margin-top；&amp;lt;br/&amp;gt;
+&amp;lt;p data-height=&amp;quot;268&amp;quot; data-theme-id=&amp;quot;0&amp;quot; data-slug-hash=&amp;quot;dMdKEr&amp;quot; data-default-tab=&amp;quot;result&amp;quot; data-user=&amp;quot;Stacyyy&amp;quot; class=&amp;quot;codepen&amp;quot;&amp;gt;See the Pen &amp;lt;a href=&amp;quot;http://codepen.io/Stacyyy/pen/dMdKEr/&amp;quot;&amp;gt;collasping1&amp;lt;/a&amp;gt; by stacyyy (&amp;lt;a href=&amp;quot;http://codepen.io/Stacyyy&amp;quot;&amp;gt;@Stacyyy&amp;lt;/a&amp;gt;) on &amp;lt;a href=&amp;quot;http://codepen.io&amp;quot;&amp;gt;CodePen&amp;lt;/a&amp;gt;.&amp;lt;/p&amp;gt;
+&amp;lt;script async src=&amp;quot;//assets.codepen.io/assets/embed/ei.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+-  height 值为 auto 的元素的 margin-bottom 和 最后一个常规文档流的子元素的 margin-bottom；&amp;lt;br/&amp;gt;
+&amp;lt;p data-height=&amp;quot;268&amp;quot; data-theme-id=&amp;quot;0&amp;quot; data-slug-hash=&amp;quot;RaQBoP&amp;quot; data-default-tab=&amp;quot;result&amp;quot; data-user=&amp;quot;Stacyyy&amp;quot; class=&amp;quot;codepen&amp;quot;&amp;gt;See the Pen &amp;lt;a href=&amp;quot;http://codepen.io/Stacyyy/pen/RaQBoP/&amp;quot;&amp;gt;collasping2&amp;lt;/a&amp;gt; by stacyyy (&amp;lt;a href=&amp;quot;http://codepen.io/Stacyyy&amp;quot;&amp;gt;@Stacyyy&amp;lt;/a&amp;gt;) on &amp;lt;a href=&amp;quot;http://codepen.io&amp;quot;&amp;gt;CodePen&amp;lt;/a&amp;gt;.&amp;lt;/p&amp;gt;
+&amp;lt;script async src=&amp;quot;//assets.codepen.io/assets/embed/ei.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+- 元素的 margin-bottom 和下一个常规文档流的兄弟元素的 margin-top；&amp;lt;br/&amp;gt;
+- height 为0并且 min-height 也为0，不包含常规文档流的子元素并且自身没有建立新的 BFC 的元素的 margin-top 和 margin-bottom；
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;p&gt;这里提一下外边距的重叠计算规则：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;当相邻块级元素的外边距都为正数时，重叠外边距取更大者的值；     &lt;/li&gt;
+&lt;li&gt;当相邻块级元素的外边距都为负数时，重叠外边距取两者绝对值更大者的值；      &lt;/li&gt;
+&lt;li&gt;当相邻块级元素的外边距一个为正，一个为负时，重叠外边距取两者相加后的值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;包含浮动元素&quot;&gt;&lt;a href=&quot;#包含浮动元素&quot; class=&quot;headerlink&quot; title=&quot;包含浮动元素&quot;&gt;&lt;/a&gt;包含浮动元素&lt;/h3&gt;&lt;p&gt;对于一个没有高度或高度为 auto 的父容器，如果子元素是浮动元素，脱离了文档流，则父容器无法包含子元素，我们可以利用 BFC 来包含浮动元素。&lt;br&gt;    &lt;/p&gt;&lt;p data-height=&quot;268&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;VaQqrW&quot; data-default-tab=&quot;result&quot; data-user=&quot;Stacyyy&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/Stacyyy/pen/VaQqrW/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;show_height&lt;/a&gt; by stacyyy (&lt;a href=&quot;http://codepen.io/Stacyyy&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;@Stacyyy&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;&lt;br&gt;    &lt;script async src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;&lt;p&gt;&lt;/p&gt;
 &lt;p&gt;So easy! My mom wouldn’t be worried about my floats any more.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;对 BFC 了解到这里，我们就能理解很多意料之外出现的布局效果了。 BFC 还可以应用于“避免文字环绕浮动元素”等，为它创造一个 BFC 即可！这里就不需要给出示例了。&lt;/p&gt;
