@@ -65,7 +65,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/04/08/BFC/index.html">
 <meta property="og:site_name" content="Stacy's Notes">
 <meta property="og:description" content="什么是 BFCBFC（block formattting context），块级格式化上下文，我们在 CSS 中的许多行为都会创建新的 BFC ，到底什么是 BFC 呢？它提供了一个独立布局的环境，理解为一个盒子（块级元素），这个盒子里的一切布局不受外界影响(我们可以利用这个特性来消除浮动元素或者对其非浮动的兄弟元素和其子元素带来的影响)，但盒子内部的布局存在相互影响。本文将从“何时产生新的 BF">
-<meta property="og:updated_time" content="2016-04-12T13:45:29.000Z">
+<meta property="og:updated_time" content="2016-04-12T13:48:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BFC">
 <meta name="twitter:description" content="什么是 BFCBFC（block formattting context），块级格式化上下文，我们在 CSS 中的许多行为都会创建新的 BFC ，到底什么是 BFC 呢？它提供了一个独立布局的环境，理解为一个盒子（块级元素），这个盒子里的一切布局不受外界影响(我们可以利用这个特性来消除浮动元素或者对其非浮动的兄弟元素和其子元素带来的影响)，但盒子内部的布局存在相互影响。本文将从“何时产生新的 BF">
@@ -301,11 +301,11 @@ overflow: hidden | scroll | auto; //not visible
 <li>都属于垂直方向上的相邻外边距（父子元素、兄弟元素、元素自身）:</li>
 </ol>
 <pre><code>- 元素的 margin-top 和第一个常规文档流的子元素的 margin-top；&lt;br/&gt;
-&lt;p data-height=&quot;268&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;dMdKEr&quot; data-default-tab=&quot;result&quot; data-user=&quot;Stacyyy&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/Stacyyy/pen/dMdKEr/&quot;&gt;collasping1&lt;/a&gt; by stacyyy (&lt;a href=&quot;http://codepen.io/Stacyyy&quot;&gt;@Stacyyy&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
-&lt;script async src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+    &lt;p data-height=&quot;268&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;dMdKEr&quot; data-default-tab=&quot;result&quot; data-user=&quot;Stacyyy&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/Stacyyy/pen/dMdKEr/&quot;&gt;collasping1&lt;/a&gt; by stacyyy (&lt;a href=&quot;http://codepen.io/Stacyyy&quot;&gt;@Stacyyy&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+    &lt;script async src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
 -  height 值为 auto 的元素的 margin-bottom 和 最后一个常规文档流的子元素的 margin-bottom；&lt;br/&gt;
-&lt;p data-height=&quot;268&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;RaQBoP&quot; data-default-tab=&quot;result&quot; data-user=&quot;Stacyyy&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/Stacyyy/pen/RaQBoP/&quot;&gt;collasping2&lt;/a&gt; by stacyyy (&lt;a href=&quot;http://codepen.io/Stacyyy&quot;&gt;@Stacyyy&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
-&lt;script async src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+    &lt;p data-height=&quot;268&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;RaQBoP&quot; data-default-tab=&quot;result&quot; data-user=&quot;Stacyyy&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/Stacyyy/pen/RaQBoP/&quot;&gt;collasping2&lt;/a&gt; by stacyyy (&lt;a href=&quot;http://codepen.io/Stacyyy&quot;&gt;@Stacyyy&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+    &lt;script async src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
 - 元素的 margin-bottom 和下一个常规文档流的兄弟元素的 margin-top；&lt;br/&gt;
 - height 为0并且 min-height 也为0，不包含常规文档流的子元素并且自身没有建立新的 BFC 的元素的 margin-top 和 margin-bottom；
 </code></pre><hr>
