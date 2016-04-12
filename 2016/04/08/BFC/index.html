@@ -65,7 +65,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/04/08/BFC/index.html">
 <meta property="og:site_name" content="Stacy's Notes">
 <meta property="og:description" content="什么是 BFCBFC（block formattting context），块级格式化上下文，我们在 CSS 中的许多行为都会创建新的 BFC ，到底什么是 BFC 呢？它提供了一个独立布局的环境，理解为一个盒子（块级元素），这个盒子里的一切布局不受外界影响(我们可以利用这个特性来消除浮动元素或者对其非浮动的兄弟元素和其子元素带来的影响)，但盒子内部的布局存在相互影响。本文将从“何时产生新的 BF">
-<meta property="og:updated_time" content="2016-04-12T13:48:49.000Z">
+<meta property="og:updated_time" content="2016-04-12T13:52:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BFC">
 <meta name="twitter:description" content="什么是 BFCBFC（block formattting context），块级格式化上下文，我们在 CSS 中的许多行为都会创建新的 BFC ，到底什么是 BFC 呢？它提供了一个独立布局的环境，理解为一个盒子（块级元素），这个盒子里的一切布局不受外界影响(我们可以利用这个特性来消除浮动元素或者对其非浮动的兄弟元素和其子元素带来的影响)，但盒子内部的布局存在相互影响。本文将从“何时产生新的 BF">
@@ -298,17 +298,15 @@ overflow: hidden | scroll | auto; //not visible
 <ol>
 <li>处于同一个 BFC 中的正常文档流中的块级元素；</li>
 <li>元素之间不存在间隙<a href="https://www.w3.org/TR/CSS2/visuren.html#clearance" target="_blank" rel="external">（clearance）</a>，并且没有 padding 和 border 将它们分开:<br>根据 W3C 规范，浮动元素之后的元素设置 clear<br> 闭合相关浮动时，闭合浮动的元素会在其 margin-top 上形成一定的空隙，也就是我们这里所说的     clearance （通常情况下我们不需要计算出来，具体计算可以参考上文中 clearance 的定义链接），这个间距会阻止 margin-top 的叠加。<br> <p data-height="268" data-theme-id="0" data-slug-hash="KzQrYB" data-default-tab="result" data-user="Stacyyy" class="codepen">See the Pen <a href="http://codepen.io/Stacyyy/pen/KzQrYB/" target="_blank" rel="external">clearance</a> by stacyyy (<a href="http://codepen.io/Stacyyy" target="_blank" rel="external">@Stacyyy</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><br> <script async src="//assets.codepen.io/assets/embed/ei.js"></script><br>从上面的例子中，我们可以看到，上下两个块级元素的间距只有上面的块计元素的 margin-bottom 决定，显示为 20px ，而闭和浮动元素的 margin-top 值 100px 并未和 浮动元素的 margin-bottom 进行叠加，而是紧贴着它的 margin-bottom。<br>我们可以看到，第一个盒子和第二个盒子的外边距并未发生重叠，可以得出结论，闭合浮动不能使浮动元素回到原来的 BFC 。            </li>
-<li>都属于垂直方向上的相邻外边距（父子元素、兄弟元素、元素自身）:</li>
+<li>都属于垂直方向上的相邻外边距（父子元素、兄弟元素、元素自身）:<ul>
+<li>元素的 margin-top 和第一个常规文档流的子元素的 margin-top；<br><br>  <p data-height="268" data-theme-id="0" data-slug-hash="dMdKEr" data-default-tab="result" data-user="Stacyyy" class="codepen">See the Pen <a href="http://codepen.io/Stacyyy/pen/dMdKEr/" target="_blank" rel="external">collasping1</a> by stacyyy (<a href="http://codepen.io/Stacyyy" target="_blank" rel="external">@Stacyyy</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p>  <script async src="//assets.codepen.io/assets/embed/ei.js"></script></li>
+<li>height 值为 auto 的元素的 margin-bottom 和 最后一个常规文档流的子元素的 margin-bottom；<br><br> <p data-height="268" data-theme-id="0" data-slug-hash="RaQBoP" data-default-tab="result" data-user="Stacyyy" class="codepen">See the Pen <a href="http://codepen.io/Stacyyy/pen/RaQBoP/" target="_blank" rel="external">collasping2</a> by stacyyy (<a href="http://codepen.io/Stacyyy" target="_blank" rel="external">@Stacyyy</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p> <script async src="//assets.codepen.io/assets/embed/ei.js"></script></li>
+<li>元素的 margin-bottom 和下一个常规文档流的兄弟元素的 margin-top；<br></li>
+<li>height 为0并且 min-height 也为0，不包含常规文档流的子元素并且自身没有建立新的 BFC 的元素的 margin-top 和 margin-bottom；</li>
+</ul>
+</li>
 </ol>
-<pre><code>- 元素的 margin-top 和第一个常规文档流的子元素的 margin-top；&lt;br/&gt;
-    &lt;p data-height=&quot;268&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;dMdKEr&quot; data-default-tab=&quot;result&quot; data-user=&quot;Stacyyy&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/Stacyyy/pen/dMdKEr/&quot;&gt;collasping1&lt;/a&gt; by stacyyy (&lt;a href=&quot;http://codepen.io/Stacyyy&quot;&gt;@Stacyyy&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
-    &lt;script async src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
--  height 值为 auto 的元素的 margin-bottom 和 最后一个常规文档流的子元素的 margin-bottom；&lt;br/&gt;
-    &lt;p data-height=&quot;268&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;RaQBoP&quot; data-default-tab=&quot;result&quot; data-user=&quot;Stacyyy&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/Stacyyy/pen/RaQBoP/&quot;&gt;collasping2&lt;/a&gt; by stacyyy (&lt;a href=&quot;http://codepen.io/Stacyyy&quot;&gt;@Stacyyy&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
-    &lt;script async src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
-- 元素的 margin-bottom 和下一个常规文档流的兄弟元素的 margin-top；&lt;br/&gt;
-- height 为0并且 min-height 也为0，不包含常规文档流的子元素并且自身没有建立新的 BFC 的元素的 margin-top 和 margin-bottom；
-</code></pre><hr>
+<hr>
 <p>这里提一下外边距的重叠计算规则：</p>
 <ul>
 <li>当相邻块级元素的外边距都为正数时，重叠外边距取更大者的值；     </li>
