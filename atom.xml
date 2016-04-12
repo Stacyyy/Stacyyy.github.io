@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-12T12:16:17.000Z</updated>
+  <updated>2016-04-12T12:18:01.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016/04/08/BFC/"/>
     <id>http://yoursite.com/2016/04/08/BFC/</id>
     <published>2016-04-08T06:07:01.000Z</published>
-    <updated>2016-04-12T12:16:17.000Z</updated>
+    <updated>2016-04-12T12:18:01.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;什么是-BFC&quot;&gt;&lt;a href=&quot;#什么是-BFC&quot; class=&quot;headerlink&quot; title=&quot;什么是 BFC&quot;&gt;&lt;/a&gt;什么是 BFC&lt;/h2&gt;&lt;p&gt;BFC（block formattting context），块级格式化上下文，我们在 CSS 中的许多行为都会创建新的 BFC ，到底什么是 BFC 呢？它提供了一个独立布局的环境，理解为一个盒子（块级元素），这个盒子里的一切布局不受外界影响(我们可以利用这个特性来消除浮动元素或者对其非浮动的兄弟元素和其子元素带来的影响)，但盒子内部的布局存在相互影响。本文将从“何时产生新的 BFC ”以及“如何应用 BFC 实现我们想要的样式效果”两个方面展开。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;什么情况下产生-BFC&quot;&gt;&lt;a href=&quot;#什么情况下产生-BFC&quot; class=&quot;headerlink&quot; title=&quot;什么情况下产生 BFC&quot;&gt;&lt;/a&gt;什么情况下产生 BFC&lt;/h2&gt;&lt;p&gt;当 CSS 中设置里以下属性中的一种或多种时，都会创建新的BFC。&lt;/p&gt;
@@ -86,7 +86,7 @@ overflow: hidden | scroll | auto; //not visible
     <link href="http://yoursite.com/2016/03/28/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/"/>
     <id>http://yoursite.com/2016/03/28/响应式布局/</id>
     <published>2016-03-28T04:48:40.000Z</published>
-    <updated>2016-03-30T20:09:10.000Z</updated>
+    <updated>2016-04-12T12:19:17.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;响应式布局&quot;&gt;&lt;a href=&quot;#响应式布局&quot; class=&quot;headerlink&quot; title=&quot;响应式布局&quot;&gt;&lt;/a&gt;响应式布局&lt;/h2&gt;&lt;p&gt;（写栅格式布局时接触到的一些关于响应式布局的知识，以及运用SCSS对代码进行优化。）&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -197,6 +197,8 @@ overflow: hidden | scroll | auto; //not visible
       &lt;h2 id=&quot;响应式布局&quot;&gt;&lt;a href=&quot;#响应式布局&quot; class=&quot;headerlink&quot; title=&quot;响应式布局&quot;&gt;&lt;/a&gt;响应式布局&lt;/h2&gt;&lt;p&gt;（写栅格式布局时接触到的一些关于响应式布局的知识，以及运用SCSS对代码进行优化。）&lt;/p&gt;
     
     </summary>
+    
+      <category term="CSS + HTML" scheme="http://yoursite.com/categories/CSS-HTML/"/>
     
     
       <category term="CSS＋HTML" scheme="http://yoursite.com/tags/CSS%EF%BC%8BHTML/"/>
