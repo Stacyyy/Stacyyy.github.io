@@ -65,7 +65,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/04/08/BFC/index.html">
 <meta property="og:site_name" content="Stacy's Notes">
 <meta property="og:description" content="什么是 BFCBFC（block formattting context），块级格式化上下文，我们在 CSS 中的许多行为都会创建新的 BFC ，到底什么是 BFC 呢？它提供了一个独立布局的环境，理解为一个盒子（块级元素），这个盒子里的一切布局不受外界影响(我们可以利用这个特性来消除浮动元素或者对其非浮动的兄弟元素和其子元素带来的影响)，但盒子内部的布局存在相互影响。本文将从“何时产生新的 BF">
-<meta property="og:updated_time" content="2016-04-12T12:18:01.000Z">
+<meta property="og:updated_time" content="2016-04-12T12:28:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BFC">
 <meta name="twitter:description" content="什么是 BFCBFC（block formattting context），块级格式化上下文，我们在 CSS 中的许多行为都会创建新的 BFC ，到底什么是 BFC 呢？它提供了一个独立布局的环境，理解为一个盒子（块级元素），这个盒子里的一切布局不受外界影响(我们可以利用这个特性来消除浮动元素或者对其非浮动的兄弟元素和其子元素带来的影响)，但盒子内部的布局存在相互影响。本文将从“何时产生新的 BF">
@@ -314,12 +314,15 @@ overflow: hidden | scroll | auto; //not visible
 &nbsp;&nbsp;&#8226;&nbsp;元素的 margin-bottom 和下一个常规文档流的兄弟元素的 margin-top；<br>
 &nbsp;&nbsp;&#8226;&nbsp; height 为0并且 min-height 也为0，不包含常规文档流的子元素并且自身没有建立新的 BFC 的元素的 margin-top 和 margin-bottom；
 
-#### 外边距的重叠计算规则
+---
+这里提一下外边距的重叠计算规则：
+
 1、当相邻块级元素的外边距都为正数时，重叠外边距取更大者的值；<br>
 2、当相邻块级元素的外边距都为负数时，重叠外边距取两者绝对值更大者的值；<br>
 3、当相邻块级元素的外边距一个为正，一个为负时，重叠外边距取两者相加后的值。<br>
 
 ### 包含浮动元素
+
 对于一个没有高度或高度为 auto 的父容器，如果子元素是浮动元素，脱离了文档流，则父容器无法包含子元素，我们可以利用 BFC 来包含浮动元素。
 <p data-height="268" data-theme-id="0" data-slug-hash="VaQqrW" data-default-tab="result" data-user="Stacyyy" class="codepen">See the Pen <a href="http://codepen.io/Stacyyy/pen/VaQqrW/" target="_blank" rel="external">show_height</a> by stacyyy (<a href="http://codepen.io/Stacyyy" target="_blank" rel="external">@Stacyyy</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
