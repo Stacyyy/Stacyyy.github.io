@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-13T00:31:30.000Z</updated>
+  <updated>2016-04-15T10:05:34.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,65 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>position、display和float叠加之后</title>
+    <link href="http://yoursite.com/2016/04/13/position%E3%80%81display%E5%92%8Cfloat%E5%8F%A0%E5%8A%A0%E4%B9%8B%E5%90%8E/"/>
+    <id>http://yoursite.com/2016/04/13/position、display和float叠加之后/</id>
+    <published>2016-04-13T01:29:49.000Z</published>
+    <updated>2016-04-15T10:05:34.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;position-amp-display-amp-float&quot;&gt;&lt;a href=&quot;#position-amp-display-amp-float&quot; class=&quot;headerlink&quot; title=&quot;position &amp;amp; display &amp;amp; float&quot;&gt;&lt;/a&gt;position &amp;amp; display &amp;amp; float&lt;/h3&gt;&lt;p&gt;position、display 和 float 三个属性叠加使用，会有我们意料不到的结果。但如果我们知道这三个属性的不同取值造成的影响以及它们的优先级，我们就能按照自己的想法来进行布局。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;这里只列出了部分属性值&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;display: block | inline-block | inline | none | list-item | table ...
+position: absolute | relative | fixed | static 
+float: left | right 
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;display 设置了元素生成的框的类型，提一下 list-item 属性值，它会以块级元素形式显示，并添加样式列表标记。position 设置了元素的位置类型，static 是默认值，没有定位，元素在正常文档流中；fixed 以浏览器窗口进行绝对定位；absolute 生成相对于上一个已定位的父元素进行绝对定位。relative 生成相对于正常位置的相对定位元素。&lt;/p&gt;
+&lt;h3 id=&quot;优先级排序&quot;&gt;&lt;a href=&quot;#优先级排序&quot; class=&quot;headerlink&quot; title=&quot;优先级排序&quot;&gt;&lt;/a&gt;优先级排序&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;display 值为 none 时，元素不生成框，故 position 和 float 的设置无效。&lt;/li&gt;
+&lt;li&gt;如果 display 的值不为 none，当 position 的值为 absolute 或 fixed 时，也就是元素绝对定位时，浮动的设置就无效了，display 按转化规则（见下表）设置；&lt;/li&gt;
+&lt;li&gt;否则，浮动设置按取值（取值非 none ）定，而 display 按照转化规则设置；当 float 的值为 none 时，根元素的 display 以转化规则设置，非根元素则直接设定为 display 的取值。&lt;br&gt; &lt;p data-height=&quot;266&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;MyVMzG&quot; data-default-tab=&quot;css,result&quot; data-user=&quot;Stacyyy&quot; data-embed-version=&quot;2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/Stacyyy/pen/MyVMzG/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;float&amp;amp;display&lt;/a&gt; by stacyyy (&lt;a href=&quot;http://codepen.io/Stacyyy&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;@Stacyyy&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt; &lt;script async src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt; 
+
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;display 的设定值转换&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;设定值&lt;/th&gt;
+&lt;th&gt;计算值&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;inline-table&lt;/td&gt;
+&lt;td&gt;table&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;inline, run-in, table-row-group, table-column, table-column-group, table-header-group, table-footer-group, table-row, table-cell, table-caption, inline-block&lt;/td&gt;
+&lt;td&gt;block&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;其他&lt;/td&gt;
+&lt;td&gt;同设定值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;以上转换，读者均可在示例中改变设置查看效果。&lt;/p&gt;
+&lt;h3 id=&quot;参考资料&quot;&gt;&lt;a href=&quot;#参考资料&quot; class=&quot;headerlink&quot; title=&quot;参考资料&quot;&gt;&lt;/a&gt;参考资料&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/jackyWHJ/p/3756087.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/jackyWHJ/p/3756087.html&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;position-amp-display-amp-float&quot;&gt;&lt;a href=&quot;#position-amp-display-amp-float&quot; class=&quot;headerlink&quot; title=&quot;position &amp;amp; display &amp;amp; float&quot;&gt;&lt;/a&gt;position &amp;amp; display &amp;amp; float&lt;/h3&gt;&lt;p&gt;position、display 和 float 三个属性叠加使用，会有我们意料不到的结果。但如果我们知道这三个属性的不同取值造成的影响以及它们的优先级，我们就能按照自己的想法来进行布局。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="CSS" scheme="http://yoursite.com/categories/CSS/"/>
+    
+    
+      <category term="position display float" scheme="http://yoursite.com/tags/position-display-float/"/>
+    
+  </entry>
   
   <entry>
     <title>BFC</title>
