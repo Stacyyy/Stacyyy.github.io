@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-04-23T05:43:59.000Z</updated>
+  <updated>2017-04-23T13:30:10.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>水平垂直居中</title>
+    <link href="http://yoursite.com/2017/04/23/%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/"/>
+    <id>http://yoursite.com/2017/04/23/水平垂直居中/</id>
+    <published>2017-04-23T03:38:27.000Z</published>
+    <updated>2017-04-23T13:30:10.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;水平垂直居中&quot;&gt;&lt;a href=&quot;#水平垂直居中&quot; class=&quot;headerlink&quot; title=&quot;水平垂直居中&quot;&gt;&lt;/a&gt;水平垂直居中&lt;/h2&gt;&lt;p&gt;一个元素水平垂直居中在CSS布局中很常见，本文记录总结了水平垂直居中的一些方法，按照CSS布局中两大版块展开：块级元素内部布局、块级元素之间的布局。块级元素内部布局包括文本布局及盒模型自身布局，块级元素之间的布局包括脱离正常流及正常流中的元素。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;对于文本&quot;&gt;&lt;a href=&quot;#对于文本&quot; class=&quot;headerlink&quot; title=&quot;对于文本&quot;&gt;&lt;/a&gt;对于文本&lt;/h2&gt;&lt;p&gt;水平方向上使用 &lt;code&gt;text-align: center;&lt;/code&gt; 来保证居中，将 line-height 值与 height 值设为相同的值保证垂直居中（单行文本可用）。&lt;/p&gt;
+&lt;h2 id=&quot;对于盒模型&quot;&gt;&lt;a href=&quot;#对于盒模型&quot; class=&quot;headerlink&quot; title=&quot;对于盒模型&quot;&gt;&lt;/a&gt;对于盒模型&lt;/h2&gt;&lt;h3 id=&quot;设置-padding&quot;&gt;&lt;a href=&quot;#设置-padding&quot; class=&quot;headerlink&quot; title=&quot;设置 padding&quot;&gt;&lt;/a&gt;设置 padding&lt;/h3&gt;&lt;p&gt;将子元素的 padding 值设置为（父元素宽／高 - 子元素宽／高）／2，可将子元素填充至与父元素重合，视觉效果达到了水平垂直居中。&lt;/p&gt;
+&lt;p&gt;如果在 &lt;code&gt;box-sizing: border-box;&lt;/code&gt; 的情况下，那父元素的 padding 值设为同上，也能达到水平垂直居中效果。&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p data-height=&quot;265&quot; data-theme-id=&quot;dark&quot; data-slug-hash=&quot;KmMGxG&quot; data-default-tab=&quot;css,result&quot; data-user=&quot;Stacyyy&quot; data-embed-version=&quot;2&quot; data-pen-title=&quot;center1&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/Stacyyy/pen/KmMGxG/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;center1&lt;/a&gt; by stacyyy (&lt;a href=&quot;http://codepen.io/Stacyyy&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;@Stacyyy&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;script async src=&quot;https://production-assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;h3 id=&quot;设置-margin&quot;&gt;&lt;a href=&quot;#设置-margin&quot; class=&quot;headerlink&quot; title=&quot;设置 margin&quot;&gt;&lt;/a&gt;设置 margin&lt;/h3&gt;&lt;p&gt;同理，为子元素设置 &lt;code&gt;margin-left: auto; margin-right: auto;&lt;/code&gt; 进行填充，可以使其水平居中。这里不做示例。这种用法需要设置子元素宽度，当宽度未知时，可以用 CSS3 中的 fit-content 作为宽度值。至于上下外边距的取值和上面 padding 填充的取值同理。&lt;/p&gt;
+&lt;h2 id=&quot;对于-absolute-布局上下文&quot;&gt;&lt;a href=&quot;#对于-absolute-布局上下文&quot; class=&quot;headerlink&quot; title=&quot;对于 absolute 布局上下文&quot;&gt;&lt;/a&gt;对于 absolute 布局上下文&lt;/h2&gt;&lt;h3 id=&quot;设置-top-和-left&quot;&gt;&lt;a href=&quot;#设置-top-和-left&quot; class=&quot;headerlink&quot; title=&quot;设置 top 和 left&quot;&gt;&lt;/a&gt;设置 top 和 left&lt;/h3&gt;&lt;p&gt;&lt;/p&gt;&lt;p data-height=&quot;265&quot; data-theme-id=&quot;dark&quot; data-slug-hash=&quot;JNKwYp&quot; data-default-tab=&quot;css,result&quot; data-user=&quot;Stacyyy&quot; data-embed-version=&quot;2&quot; data-pen-title=&quot;JNKwYp&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;https://codepen.io/Stacyyy/pen/JNKwYp/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;JNKwYp&lt;/a&gt; by stacyyy (&lt;a href=&quot;http://codepen.io/Stacyyy&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;@Stacyyy&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;script async src=&quot;https://production-assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;&lt;br&gt;必须已知子元素的宽高设定对应的 margin 值。&lt;/p&gt;
+&lt;h3 id=&quot;使用-transform&quot;&gt;&lt;a href=&quot;#使用-transform&quot; class=&quot;headerlink&quot; title=&quot;使用 transform&quot;&gt;&lt;/a&gt;使用 transform&lt;/h3&gt;&lt;p&gt;对应的 CSS 换为&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;position: absolute;
+top: 50%;
+left: 50%;
+transform: translate3d(-50%, -50%, 0);
+-webkit-transform:translate3d(-50%, -50%, 0);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;可以得到如上图示例中的效果，该方法不需要知道子元素的宽高。关于 translate3d 属性的使用效果，可参照&lt;a href=&quot;http://www.softwhy.com/forum.php?mod=viewthread&amp;amp;tid=13300&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;。&lt;/p&gt;
+&lt;h3 id=&quot;使用-text-align-影响-inline-block&quot;&gt;&lt;a href=&quot;#使用-text-align-影响-inline-block&quot; class=&quot;headerlink&quot; title=&quot;使用 text-align 影响 inline-block&quot;&gt;&lt;/a&gt;使用 text-align 影响 inline-block&lt;/h3&gt;&lt;p&gt;&lt;/p&gt;&lt;p data-height=&quot;265&quot; data-theme-id=&quot;dark&quot; data-slug-hash=&quot;ybJGgg&quot; data-default-tab=&quot;css,result&quot; data-user=&quot;Stacyyy&quot; data-embed-version=&quot;2&quot; data-pen-title=&quot;ybJGgg&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;https://codepen.io/Stacyyy/pen/ybJGgg/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ybJGgg&lt;/a&gt; by stacyyy (&lt;a href=&quot;http://codepen.io/Stacyyy&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;@Stacyyy&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;script async src=&quot;https://production-assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;&lt;br&gt;父元素设置的 &lt;code&gt;text-align: center;&lt;/code&gt; 作用于匿名文本节点，当子元素设置 &lt;code&gt;display: inline-block;&lt;/code&gt; 时会收到其影响，子元素左边与父元素中心对齐，所以需要设置 margin 来调整位置。将上图示例中的注释去掉则可看到子元素水平垂直居中效果。&lt;/p&gt;
+&lt;h3 id=&quot;使用相互冲突的定位和-margin-auto&quot;&gt;&lt;a href=&quot;#使用相互冲突的定位和-margin-auto&quot; class=&quot;headerlink&quot; title=&quot;使用相互冲突的定位和 margin: auto&quot;&gt;&lt;/a&gt;使用相互冲突的定位和 margin: auto&lt;/h3&gt;&lt;p&gt;当子元素有自己的宽高时，可以进行如下设置&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;position: absolute;
+top: 0;
+left: 0;
+bottom: 0;
+right: 0;
+margin: auto;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;可以实现水平垂直居中。实现原理为盒模型的宽度计算必须等于 padding 、margin 、width 、border 的总和。此时会平分 margin 以满足要求。&lt;/p&gt;
+&lt;h3 id=&quot;使用-flex-布局&quot;&gt;&lt;a href=&quot;#使用-flex-布局&quot; class=&quot;headerlink&quot; title=&quot;使用 flex 布局&quot;&gt;&lt;/a&gt;使用 flex 布局&lt;/h3&gt;&lt;p&gt;将父元素设置 &lt;code&gt;display: flex;&lt;/code&gt; ，子元素设置 &lt;code&gt;margin: auto;&lt;/code&gt; 即可。该方法不要求父子元素有固定宽高。&lt;/p&gt;
+&lt;h2 id=&quot;关于-vertical-align&quot;&gt;&lt;a href=&quot;#关于-vertical-align&quot; class=&quot;headerlink&quot; title=&quot;关于 vertical-align&quot;&gt;&lt;/a&gt;关于 vertical-align&lt;/h2&gt;&lt;p&gt;使用 &lt;code&gt;vertical-align: middle;&lt;/code&gt; 需要有对齐的参照物时才会起作用。类似上文中提到的设置 &lt;code&gt;display: inline-block;&lt;/code&gt; 时会生成隐匿文本节点，其所占据的行高可以为居中元素提供参照。类似的作用设置 line-height 或者 font-size 都可以达到。&lt;/p&gt;
+&lt;h2 id=&quot;参考资料&quot;&gt;&lt;a href=&quot;#参考资料&quot; class=&quot;headerlink&quot; title=&quot;参考资料&quot;&gt;&lt;/a&gt;参考资料&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://div.io/topic/1155&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://div.io/topic/1155&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.w3cplus.com/css3/a-visual-guide-to-css3-flexbox-properties.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.w3cplus.com/css3/a-visual-guide-to-css3-flexbox-properties.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/hykun/p/3937852.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/hykun/p/3937852.html&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;水平垂直居中&quot;&gt;&lt;a href=&quot;#水平垂直居中&quot; class=&quot;headerlink&quot; title=&quot;水平垂直居中&quot;&gt;&lt;/a&gt;水平垂直居中&lt;/h2&gt;&lt;p&gt;一个元素水平垂直居中在CSS布局中很常见，本文记录总结了水平垂直居中的一些方法，按照CSS布局中两大版块展开：块级元素内部布局、块级元素之间的布局。块级元素内部布局包括文本布局及盒模型自身布局，块级元素之间的布局包括脱离正常流及正常流中的元素。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="CSS" scheme="http://yoursite.com/categories/CSS/"/>
+    
+    
+      <category term="水平垂直居中" scheme="http://yoursite.com/tags/%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/"/>
+    
+      <category term="vertical-align" scheme="http://yoursite.com/tags/vertical-align/"/>
+    
+  </entry>
   
   <entry>
     <title>position、display和float叠加之后</title>
