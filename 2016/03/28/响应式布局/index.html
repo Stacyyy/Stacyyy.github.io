@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="response_web_design viewport SCSS," />
+  <meta name="keywords" content="响应式布局,流式设计,viewport," />
 
 
 
@@ -65,7 +65,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/03/28/响应式布局/index.html">
 <meta property="og:site_name" content="Stacy's Notes">
 <meta property="og:description" content="响应式布局（写栅格式布局时接触到的一些关于响应式布局的知识，以及运用SCSS对代码进行优化。）">
-<meta property="og:updated_time" content="2016-04-13T00:30:29.000Z">
+<meta property="og:updated_time" content="2017-04-23T05:51:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="响应式布局">
 <meta name="twitter:description" content="响应式布局（写栅格式布局时接触到的一些关于响应式布局的知识，以及运用SCSS对代码进行优化。）">
@@ -242,8 +242,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/CSS-HTML/" itemprop="url" rel="index">
-                    <span itemprop="name">CSS + HTML</span>
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
                   </a>
                 </span>
 
@@ -308,7 +308,7 @@
 <p>顺带一提，<code>&lt;meta name=&quot;viewport&quot; content=&quot;width=400, initial-scale=1&quot;&gt;</code> 这种情况下设备将比较 width 的值和 ideal viewport 的值，浏览器取更大的那个宽度。</p>
 <h2 id="1px-CSS-amp-1px-设备"><a href="#1px-CSS-amp-1px-设备" class="headerlink" title="1px(CSS) &amp; 1px(设备)"></a>1px(CSS) &amp; 1px(设备)</h2><p>在桌面浏览器中的 CSS 的 1px 往往对应对应着设备屏幕的1个物理像素，但这两个像素并不是同一种含义。 CSS 中的 px 只是一抽象单位，这里设置的 1px 在不同的设备中所代表的物理像素都不同。对于桌面浏览器的网页，我们可以不用过多考虑这个，但在移动设备中，CSS 中的 1px 对应的设备像素大小就各不相同了。</p>
 <p>用户缩放也将改变 CSS 中像素与设备像素的对应。当用户把界面放大一倍， CSS 中的 1px 对应的物理像素也增加一倍。</p>
-<h2 id="响应式布局代码示范"><a href="#响应式布局代码示范" class="headerlink" title="响应式布局代码示范"></a>响应式布局代码示范</h2><p>这里可以看看IFE任务中关于<a href="http://7xrp04.com1.z0.glb.clouddn.com/task_1_8_1.png" target="_blank" rel="external">栅格结构的实现效果图</a>。这里可以使用响应式网页设计来实现。<a href="http://stacyyy.github.io/IFE/task1_8/index.html" target="_blank" rel="external">代码看这里</a></p>
+<h2 id="响应式布局代码示范"><a href="#响应式布局代码示范" class="headerlink" title="响应式布局代码示范"></a>响应式布局代码示范</h2><p>这里可以看看IFE任务中关于<a href="http://7xrp04.com1.z0.glb.clouddn.com/task_1_8_1.png" target="_blank" rel="external">栅格结构的实现效果图</a>。这里可以使用响应式网页设计来实现。<a href="http://stacyyy.github.io/exercises1／gridLayout/index.html" target="_blank" rel="external">代码看这里</a></p>
 <h3 id="实现自适应"><a href="#实现自适应" class="headerlink" title="实现自适应"></a>实现自适应</h3><p>看到设计要求的时候，可能会想到下面这种这种方法实现元素之间的间隔和宽度适应：</p>
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -384,7 +384,7 @@
 
 @media (min-width:769px){
 @include generateGrid(true);
-</code></pre><p>其他样式声明这里就不加了。在更多的时候我们还会发现 @media 和 @include 方便对代码复用提供的便捷。</p>
+</code></pre><p>其他样式声明这里就不加了。在更多的时候我们还会发现 @media 和 @include 对代码复用提供的便捷。</p>
 <hr>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>1、<a href="http://www.cnblogs.com/2050/p/3877280.html" target="_blank" rel="external">http://www.cnblogs.com/2050/p/3877280.html</a>    </p>
 <p>2、<a href="http://www.quirksmode.org/mobile/" target="_blank" rel="external">http://www.quirksmode.org/mobile/</a></p>
@@ -403,7 +403,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/response-web-design-viewport-SCSS/" rel="tag">#response_web_design viewport SCSS</a>
+            <a href="/tags/响应式布局/" rel="tag">#响应式布局</a>
+          
+            <a href="/tags/流式设计/" rel="tag">#流式设计</a>
+          
+            <a href="/tags/viewport/" rel="tag">#viewport</a>
           
         </div>
       
@@ -498,7 +502,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">1</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -507,7 +511,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -536,7 +540,7 @@
               </span>
             
               <span class="links-of-author-item">
-                <a href="https://twitter.com/Stacy8023muxi" target="_blank">
+                <a href="https://twitter.com/Stacyyisworking" target="_blank">
                   
                     <i class="fa fa-twitter"></i> Twitter
                   
@@ -595,8 +599,8 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy;  2015 - 
-  <span itemprop="copyrightYear">2016</span>
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

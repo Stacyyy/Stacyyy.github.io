@@ -4,8 +4,32 @@
 
     
   <url>
+    <loc>http://yoursite.com/2016/03/28/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/</loc>
+    <lastmod>2017-04-23T05:51:47.000Z</lastmod>
+    <data>
+        <display>
+        <title>响应式布局</title>
+        <pubTime>2016-03-28T04:48:40.000Z</pubTime>
+        
+        <tag>响应式布局</tag>
+         
+        <tag>流式设计</tag>
+         
+        <tag>viewport</tag>
+         
+         
+           
+             
+              <breadCrumb title="CSS" url="http://yoursite.com/categories/CSS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2016/04/13/position%E3%80%81display%E5%92%8Cfloat%E5%8F%A0%E5%8A%A0%E4%B9%8B%E5%90%8E/</loc>
-    <lastmod>2016-04-15T10:05:34.000Z</lastmod>
+    <lastmod>2017-04-23T05:43:59.000Z</lastmod>
     <data>
         <display>
         <title>position、display和float叠加之后</title>
@@ -25,38 +49,20 @@
     
   <url>
     <loc>http://yoursite.com/2016/04/08/BFC/</loc>
-    <lastmod>2016-04-13T00:31:30.000Z</lastmod>
+    <lastmod>2017-04-23T05:43:37.000Z</lastmod>
     <data>
         <display>
         <title>BFC</title>
         <pubTime>2016-04-08T06:07:01.000Z</pubTime>
         
-        <tag>BFC collasping_margin</tag>
+        <tag>BFC</tag>
+         
+        <tag>外边距重叠</tag>
          
          
            
              
               <breadCrumb title="CSS" url="http://yoursite.com/categories/CSS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2016/03/28/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/</loc>
-    <lastmod>2016-04-13T00:30:29.000Z</lastmod>
-    <data>
-        <display>
-        <title>响应式布局</title>
-        <pubTime>2016-03-28T04:48:40.000Z</pubTime>
-        
-        <tag>response_web_design viewport SCSS</tag>
-         
-         
-           
-             
-              <breadCrumb title="CSS + HTML" url="http://yoursite.com/categories/CSS-HTML/"/>
           
         </display>
     </data>
